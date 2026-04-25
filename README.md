@@ -125,7 +125,27 @@ Response:
   "expires_at": "..."
 }
 ```
+---
 
+## 📸 Screenshots
+
+<p align="center">
+  <img width="700" alt="Create Note UI" src="https://github.com/user-attachments/assets/7265c969-b190-43fa-ac71-1bb1940d5e08" />
+  <br/>
+  <em>📝 Create Note — Clean UI to write and configure expiry for a new note</em>
+</p>
+
+<p align="center">
+  <img width="700" alt="Generated Link" src="https://github.com/user-attachments/assets/d7791b92-d00c-49f5-9bff-10fcd6a423ce" />
+  <br/>
+  <em>🔗 Shareable Link Generated — Instant link creation with countdown-based expiry</em>
+</p>
+
+<p align="center">
+  <img width="700" alt="View Note" src="https://github.com/user-attachments/assets/0960f1db-d04a-4cfd-affe-0dda9da71c37" />
+  <br/>
+  <em>📖 View Note — Recipient sees the note with expiration timestamp</em>
+</p>
 ---
 
 ## 🧠 Future Improvements
