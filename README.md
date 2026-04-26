@@ -8,11 +8,10 @@ LinkDrop is a lightweight full-stack application that allows users to create tem
 
 ## 🌐 Live Demo
 
-👉 http://18.209.177.179/
+👉 https://linkdrop.live
 
-⚠️ Note: The app is currently served over HTTP (no SSL), so the browser may mark it as "Not Secure".
-
-*(Hosted on AWS EC2 with a custom backend service using FastAPI + Uvicorn)*
+🔐 Secured with HTTPS (SSL via Let's Encrypt + Nginx)  
+☁️ Hosted on AWS EC2 (Ubuntu)
 
 ---
 
@@ -29,12 +28,14 @@ LinkDrop is a lightweight full-stack application that allows users to create tem
 
 ## 🏗️ Architecture Overview
 
-Frontend (React + TypeScript)
-⬇️
-Backend (FastAPI)
-⬇️
-In-memory / database storage (with expiry logic)
-⬇️
+Frontend (React + TypeScript)  
+⬇️  
+Nginx (Reverse Proxy + SSL Termination) 🔐  
+⬇️  
+Backend (FastAPI + Uvicorn)  
+⬇️  
+In-memory storage (with expiry logic)  
+⬇️  
 Deployed on AWS EC2 (Linux)
 
 ---
@@ -42,36 +43,39 @@ Deployed on AWS EC2 (Linux)
 ## 🧰 Tech Stack
 
 **Frontend**
-
 * React
 * TypeScript
 * Axios
 
 **Backend**
-
 * FastAPI
 * Python
 * Uvicorn
 
-**DevOps / Deployment**
-
+**Infrastructure / DevOps**
 * AWS EC2 (Ubuntu)
-* Systemd service for backend
+* Nginx (Reverse Proxy + HTTPS)
+* Let's Encrypt (Certbot SSL)
+* Systemd (Backend service management)
 * Git + GitHub
 
 ---
 
 ## 🚀 Deployment Highlights
 
-* Backend deployed as a **systemd service** on EC2
-* Runs using:
+* Custom domain: **linkdrop.live**
+* HTTPS enabled using **Let's Encrypt (Certbot)**
+* Nginx configured as:
+  - Reverse proxy for backend APIs
+  - Static frontend server
+  - SSL termination layer
+* Backend deployed as a **systemd service**
 
-  ```bash
-  uvicorn app.main:app --host 127.0.0.1 --port 8000
+```bash
+uvicorn app.main:app --host 127.0.0.1 --port 8000
   ```
-* Service auto-starts on instance boot
-* Frontend served separately (or via dev server / static build)
-* API connected via EC2 public IP
+* Automatic service startup on EC2 reboot
+* DNS configured via Namecheap → EC2 public IP
 
 ---
 
@@ -170,6 +174,8 @@ This project demonstrates:
 
 * Full-stack development (React + FastAPI)
 * REST API design
+* Reverse proxy architecture (Nginx)
+* HTTPS + SSL setup (Certbot)
 * Real-world deployment on AWS EC2
 * Service management using systemd
 * Handling time-based data expiration
